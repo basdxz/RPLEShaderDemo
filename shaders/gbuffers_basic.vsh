@@ -1,10 +1,14 @@
 #version 120
 
-varying vec2 lmcoord;
+#define VSH
+
+#include "/libs/rple.glsl"
+
 varying vec4 glcolor;
 
 void main() {
+    setLightMapCoordinates();
+
     gl_Position = ftransform();
-    lmcoord = (gl_TextureMatrix[1] * gl_MultiTexCoord1).xy;
     glcolor = gl_Color;
 }

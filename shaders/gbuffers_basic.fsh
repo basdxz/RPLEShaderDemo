@@ -1,13 +1,17 @@
 #version 120
 
-uniform sampler2D lightmap;
+#define FSH
 
-varying vec2 lmcoord;
+#include "/libs/rple.glsl"
+
+uniform sampler2D texture;
+
 varying vec4 glcolor;
 
 void main() {
-    vec4 color = glcolor;
-    color *= texture2D(lightmap, lmcoord);
+    vec4 blockLightColor = blockLight();
+
+    vec4 color = glcolor * blockLightColor;
 
 /* DRAWBUFFERS:0 */
     gl_FragData[0] = color; //gcolor
