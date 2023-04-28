@@ -9,10 +9,10 @@ varying vec2 texcoord;
 varying vec4 glcolor;
 
 void main() {
-	vec4 color = texture2D(texture, texcoord) * glcolor;
-	color.rgb = mix(color.rgb, entityColor.rgb, entityColor.a);
-	color *= texture2D(lightmap, lmcoord);
+    vec4 color = texture2D(texture, texcoord) * glcolor;
+    color.rgb = mix(color.rgb, entityColor.rgb, entityColor.a);
+    color *= texture2D(lightmap, lmcoord);
 
 /* DRAWBUFFERS:0 */
-	gl_FragData[0] = color; //gcolor
+    gl_FragData[0] = color; //gcolor
 }
