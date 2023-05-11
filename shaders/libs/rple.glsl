@@ -23,15 +23,15 @@ void setLightMapCoordinates() {
 #ifdef FSH
 
 // Set in RPLE any time a shader would have a `lightmap` uniform.
-uniform sampler2D lightmap_red;
-uniform sampler2D lightmap_green;
-uniform sampler2D lightmap_blue;
+uniform sampler2D redLightMap;
+uniform sampler2D greenLightMap;
+uniform sampler2D blueLightMap;
 
 // Returns the coloured light value of the current block light.
 vec4 blockLight() {
-    vec4 redLight = texture2D(lightmap_red, lmcoordRed);
-    vec4 greenLight = texture2D(lightmap_green, lmcoordGreen);
-    vec4 blueLight = texture2D(lightmap_blue, lmcoordBlue);
+    vec4 redLight = texture2D(redLightMap, lmcoordRed);
+    vec4 greenLight = texture2D(greenLightMap, lmcoordGreen);
+    vec4 blueLight = texture2D(blueLightMap, lmcoordBlue);
 
     return redLight * greenLight * blueLight;
 }
