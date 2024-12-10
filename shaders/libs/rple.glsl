@@ -5,17 +5,11 @@ varying vec2 lmcoordBlue;
 
 #ifdef VSH
 
-// These constants are defined in RPLE.
-#define TEXTURE_MATRIX gl_TextureMatrix[1]
-#define RED_LIGHTMAP_UV gl_MultiTexCoord1
-#define GREEN_LIGHTMAP_UV gl_MultiTexCoord6
-#define BLUE_LIGHTMAP_UV gl_MultiTexCoord7
-
 // Internally sets the light map coordinates into `lmcoordRed`, `lmcoordGreen` and `lmcoordBlue`.
 void setLightMapCoordinates() {
-    lmcoordRed = (TEXTURE_MATRIX * RED_LIGHTMAP_UV).st;
-    lmcoordGreen = (TEXTURE_MATRIX * GREEN_LIGHTMAP_UV).st;
-    lmcoordBlue = (TEXTURE_MATRIX * BLUE_LIGHTMAP_UV).st;
+    lmcoordRed = (gl_TextureMatrix[1] * gl_MultiTexCoord1).st;
+    lmcoordGreen = (gl_TextureMatrix[6] * gl_MultiTexCoord6).st;
+    lmcoordBlue = (gl_TextureMatrix[7] * gl_MultiTexCoord7).st;
 }
 
 #endif
