@@ -1,3 +1,3 @@
 # RPLE Shader Demo
 
-Demo OptiFine shader compatible with [Ruight Proper Lighting Engine](https://github.com/FalsePattern/RightProperLightingEngine)
+Demo OptiFine shader compatible with [Right Proper Lighting Engine](https://github.com/GTMEGA/RPLE)
